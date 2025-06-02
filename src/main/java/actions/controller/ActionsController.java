@@ -10,5 +10,9 @@ public class ActionsController {
 	public String actionsTest() {
 		return "app-with-compose-actions version:0.0.3";
 	}
-	
+
+	@GetMapping("/")
+	public String mianTest() {
+		return "Main Page 입니다.";
+	}
 }
