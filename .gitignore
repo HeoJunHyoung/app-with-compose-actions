@@ -209,5 +209,5 @@ replay_pid*
 # End of https://www.toptal.com/developers/gitignore/api/intellij,eclipse,java
 
 # application properties/yml
-*.properties
-*.yml
+#*.properties
+#*.yml
