@@ -28,7 +28,10 @@ services:
           
   backend:
     container_name: backend-server
-    image: gjwnsgud4016/app-with-compose-actions:latest
+    #image: gjwnsgud4016/app-with-compose-actions:latest
+
+    image: ${{ secrets.AWS_ECR_PRIVATE_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/${{ secrets.AWS_ECR_PRIVATE_REPOSITORY }}:${TAG:-latest}
+    
     ports:
       - 8080:8080
     environment:
