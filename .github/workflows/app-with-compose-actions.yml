@@ -53,7 +53,7 @@ jobs:
       with:
         context: .
         push: true
-        tags: ${{ secrets.DOCKERHUB_USERNAME }}/app-with-actions:latest
+        tags: ${{ secrets.DOCKERHUB_USERNAME }}/app-with-compose-actions:latest
 
   cd:
     needs: ci
@@ -94,6 +94,6 @@ jobs:
 
           cd /home/ubuntu/app
           sudo docker-compose down || true
-          sudo docker pull ${{ secrets.DOCKERHUB_USERNAME }}/app-with-actions
+          sudo docker pull ${{ secrets.DOCKERHUB_USERNAME }}/app-with-compose-actions
           sudo docker-compose up -d
           sudo docker image prune -a -f
