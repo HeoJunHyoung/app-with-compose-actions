@@ -3,7 +3,7 @@ version: '3'
 services:
   db:
     container_name: db-server
-    image: mysql:latest
+    image: mysql:8.0
     ports:
       - 3306:3306
     environment:
@@ -18,7 +18,13 @@ services:
       interval: 10s
       timeout: 2s
       retries: 100
-
+    deploy:  # 리소스 제한 추가
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 512M
+        reservations:
+          memory: 256M
   backend:
     container_name: backend-server
     image: gjwnsgud4016/app-with-compose-actions:latest
