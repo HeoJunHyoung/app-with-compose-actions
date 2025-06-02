@@ -25,13 +25,21 @@ services:
           memory: 512M
         reservations:
           memory: 256M
+          
   backend:
     container_name: backend-server
     image: gjwnsgud4016/app-with-compose-actions:latest
     ports:
       - 8080:8080
     environment:
-      MYSQL_HOST: db
+      #MYSQL_HOST: db
+      #
+      MYSQL_HOST: app-db.czqyg2oku1eb.ap-northeast-2.rds.amazonaws.com
+      MYSQL_PORT: 3306
+      MYSQL_DATABASE: app
+      MYSQL_USER: root
+      MYSQL_PASSWORD: root1234
+      #
     depends_on:
       db:
         condition: service_healthy
