@@ -16,7 +16,12 @@ jobs:
         distribution: 'temurin'
         cache: maven
     - name: Make application-prod.properties
-      run: echo "${{ secrets.PROPERTIES }}" > ./src/main/resources/application.properties
+      run: |
+        mkdir -p ./src/main/resources
+        echo "${{ secrets.PROPERTIES }}" > ./src/main/resources/application.properties
+        
+        # 디버깅용임
+        ls -l ./src/main/resources/application.properties
       #run: |
         #cd ./src/main/resources
         #touch ./application.properties
