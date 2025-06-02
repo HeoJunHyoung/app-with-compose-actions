@@ -17,16 +17,10 @@ jobs:
         cache: maven
     - name: Make application-prod.properties
       run: |
-        mkdir -p ./src/main/resources
-        echo "${{ secrets.PROPERTIES }}" > ./src/main/resources/application.properties
-        
-        # 디버깅용임
-        ls -l ./src/main/resources/application.properties
-      #run: |
-        #cd ./src/main/resources
-        #touch ./application.properties
-        #echo "${{ secrets.PROPERTIES }}" > ./application.properties
-      #shell: bash
+        cd ./src/main/resources
+        touch ./application.properties
+        echo "${{ secrets.PROPERTIES }}" > ./application.properties
+      shell: bash
       
     - name: Build with Maven
       run: mvn -B package --file pom.xml
