@@ -37,7 +37,7 @@ services:
     environment:
       #MYSQL_HOST: db
       #
-      MYSQL_HOST: app-db.czqyg2oku1eb.ap-northeast-2.rds.amazonaws.com
+      MYSQL_HOST: app.czqyg2oku1eb.ap-northeast-2.rds.amazonaws.com
       MYSQL_PORT: 3306
       MYSQL_DATABASE: app
       MYSQL_USER: root
