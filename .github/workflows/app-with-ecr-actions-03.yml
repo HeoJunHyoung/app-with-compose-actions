@@ -18,13 +18,14 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
           cache: maven
-          
+
+      # touch 밑에 : echo "${{ secrets.PROPERTIES }}" > ./application.properties
       - name: Make application.properties
         run: |
           mkdir -p ./src/main/resources
           cd ./src/main/resources
           touch ./application.properties
-          echo "${{ secrets.PROPERTIES }}" > ./application.properties
+          
         shell: bash
         
       - name: Build with Maven
